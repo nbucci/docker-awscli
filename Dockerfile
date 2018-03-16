@@ -13,15 +13,15 @@ RUN apk --no-cache add \
       python \
       gettext \
       zip \
-      openssh
-
-RUN pip install --upgrade \
+      openssh && \
+      pip install --upgrade \
       awscli \
       pip \
-      python-dateutil
-    
-RUN mkdir ~/.aws && chmod 700 ~/.aws
+      python-dateutil && \ 
+      mkdir ~/.aws && chmod 700 ~/.aws
 
 VOLUME ["~/.aws"]
 
-CMD ["/bin/bash", "--login"]
+ENTRYPOINT ["aws"]
+
+CMD ["help"]
