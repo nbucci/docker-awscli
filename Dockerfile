@@ -17,10 +17,9 @@ RUN apk --no-cache add \
       pip install --upgrade \
       awscli \
       pip \
-      python-dateutil && \ 
-      mkdir ~/.aws && chmod 700 ~/.aws
+      python-dateutil 
 
-VOLUME ["~/.aws"]
+VOLUME ["/root/.aws"]
 
 ENTRYPOINT ["aws"]
 
